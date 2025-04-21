@@ -51,4 +51,4 @@ class UnstopJobSearcher(Exception):
                     except:
                         continue
                 page+=1
-        return pd.DataFrame(data, orient="index")
+        return pd.DataFrame(data)
