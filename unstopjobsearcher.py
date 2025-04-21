@@ -1,5 +1,6 @@
 from time import sleep
 import requests
+import pandas as pd
 
 
 class UnstopJobSearcher(Exception):
@@ -7,7 +8,7 @@ class UnstopJobSearcher(Exception):
         """
             A class to search and retrieve jobs/internships listings based on title and location.
             Args:
-                headers (dict): A dictionary containing headers to be used for the API requests. Essential headers: 'cookie' and 'user-agent'.
+                headers (dict): A dictionary containing headers to be used for the API requests. Essential headers: 'authorization' and 'user-agent'.
             
             Attributes:
                 headers (dict): Stores the headers for API requests.
@@ -50,4 +51,4 @@ class UnstopJobSearcher(Exception):
                     except:
                         continue
                 page+=1
-        return data
+        return pd.DataFrame(data, orient="index")
