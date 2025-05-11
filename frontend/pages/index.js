@@ -240,6 +240,62 @@ export default function Home() {
               </>
             ) : null}
           </div>
+
+          <footer className={styles.footer}>
+            <div className={styles.footerContent}>
+              <div className={styles.creatorInfo}>
+                <div className={styles.creatorName}>Saransh Saini</div>
+                <div className={styles.creatorTitle}>Full Stack Developer & Data Scientist</div>
+              </div>
+              <div className={styles.socialLinks}>
+                <a
+                  href="https://www.thesaranshsaini.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.socialLink}
+                >
+                  <Image
+                    src="/portfolio.svg"
+                    width={20}
+                    height={20}
+                    style={{ filter: "invert(1)" }}
+                    alt="Portfolio"
+                  />
+                  <span>Portfolio</span>
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/saranshsaini48/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.socialLink}
+                >
+                  <Image
+                    src="/linkedin.svg"
+                    width={20}
+                    height={20}
+                    style={{ filter: "invert(1)" }}
+                    alt="LinkedIn"
+                  />
+                  <span>LinkedIn</span>
+                </a>
+                <a
+                  href="https://github.com/Saransh482003"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.socialLink}
+                >
+                  <Image
+                    src="/github.svg"
+                    width={20}
+                    height={20}
+                    style={{ filter: "invert(1)" }}
+                    alt="GitHub"
+                  />
+                  <span>GitHub</span>
+                </a>
+              </div>
+            </div>
+          </footer>
         </main>
       </div>
     </>
