@@ -82,7 +82,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Job Search - Find Your Next Opportunity</title>
+        <title>Unstop Job Search - Find Your Next Opportunity</title>
         <meta name="description" content="Search for jobs and internships" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
@@ -90,7 +90,7 @@ export default function Home() {
       <div className={`${styles.page} ${geistSans.variable} ${geistMono.variable}`}>
         <main className={styles.main}>
           <header className={styles.header}>
-            <h1 className={styles.title}>Job Search</h1>
+            <h1 className={styles.title}>Unstop Job Search</h1>
             <p className={styles.subtitle}>
               Find your next opportunity - Browse through thousands of jobs and internships
             </p>
@@ -148,7 +148,10 @@ export default function Home() {
             {error && <div className={styles.error}>{error}</div>}
             
             {loading ? (
-              <div className={styles.loading}>Loading results...</div>
+              <div className={styles.loading}>
+                <div className={styles.loadingSpinner}></div>
+                <div className={styles.loadingText}>Searching for opportunities...</div>
+              </div>
             ) : results.length > 0 ? (
               <>
                 <div className={styles.resultsHeader}>
