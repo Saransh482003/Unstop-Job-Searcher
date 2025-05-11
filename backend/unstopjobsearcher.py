@@ -24,7 +24,7 @@ class UnstopJobSearcher(Exception):
                 type (str): 'jobs' or 'internships'.
         """
         if type.lower() not in ["jobs","internships"]:
-            raise ValueError("Type must be either 'job' or 'internship'")
+            raise ValueError("Type must be either 'jobs' or 'internships'")
         data = []
         page=1
         while True:
