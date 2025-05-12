@@ -53,7 +53,7 @@ export default function Home() {
       });
 
       const response = await fetch(
-        `http://127.0.0.1:8000/search-jobs/?${queryParams}`
+        `https://unstop-job-searcher.onrender.com/search-jobs/?${queryParams}`
       );
       const data = await response.json();
 
