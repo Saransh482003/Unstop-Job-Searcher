@@ -286,10 +286,15 @@ export default function Home() {
                             </span>
                           </span>
                         </div>
-                      </th>
-                      <th onClick={() => handleSort('views')} className={styles.sortable}>
+                      </th>                      <th onClick={() => handleSort('views')} className={styles.sortable}>
                         <div className={styles.headerContent}>
-                          <span>Statistics</span>
+                          <div>
+                            <span>Statistics</span>
+                            <div className={styles.statsHelper}>
+                              <span><Image src="/views.svg" width={12} height={12} alt="Views" style={{ filter: "invert(1)", marginRight: "4px" }} /> Views</span>
+                              <span><Image src="/registered.svg" width={12} height={12} alt="Applications" style={{ filter: "invert(1)", marginRight: "4px" }} /> Applications</span>
+                            </div>
+                          </div>
                           <span className={styles.sortButtons}>
                             <span className={styles.sortIndicator}>
                               {sortConfig.key === 'views' && sortConfig.direction === 'descending' ? (

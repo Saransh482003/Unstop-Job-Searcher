@@ -610,3 +610,17 @@
   color: rgba(255, 255, 255, 0.7);
   font-size: 0.9rem;
 }
+
+.statsHelper {
+  font-size: 0.7rem;
+  color: var(--text-secondary);
+  margin-top: 4px;
+  display: flex;
+  gap: 12px;
+}
+
+.statsHelper span {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+}
