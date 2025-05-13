@@ -306,29 +306,75 @@
 
 .sortable {
   cursor: pointer;
-  user-select: none;
   position: relative;
-  padding-right: 20px !important;
   transition: background-color 0.2s ease;
+  user-select: none;
 }
 
 .sortable:hover {
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: var(--gray-alpha-100);
+}
+
+.headerContent {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  justify-content: space-between;
+  padding-right: 0.5rem;
+}
+
+.sortButtons {
+  opacity: 0.6;
+  font-size: 0.75rem;
+  font-family: var(--font-geist-mono);
+}
+
+.sortable:hover .sortButtons {
+  opacity: 1;
 }
 
 .sortIndicator {
-  margin-left: 4px;
-  display: inline-block;
-  opacity: 0.7;
-  font-size: 0.8em;
+  padding: 4px 8px;
+  border-radius: 4px;
+  background: var(--gray-alpha-100);
+  transition: all 0.3s ease;
+  font-size: 0.75rem;
+  color: var(--text-secondary);
 }
 
-/* Enhance existing table styles */
+.sortable:hover .sortIndicator {
+  background: var(--gray-alpha-200);
+  color: var(--primary-color);
+}
+
+/* Add animation for the sort direction change */
+@keyframes indicatorChange {
+  0% {
+    transform: scale(0.95);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.sortIndicator {
+  animation: indicatorChange 0.2s ease;
+}
+
+/* Update existing styles */
 .table th {
-  padding: 12px;
+  padding: 0.75rem;
   text-align: left;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  transition: all 0.2s ease;
+  font-weight: 500;
+  color: var(--text-secondary);
+  background: var(--table-header-bg);
+  border-bottom: 1px solid var(--border-color);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  transition: background-color 0.2s ease;
 }
 
 .table tbody tr {

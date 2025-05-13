@@ -246,38 +246,60 @@ export default function Home() {
                 </div>
                 <table className={styles.table}>
                   <thead>
-                    <tr>
-                      <th onClick={() => handleSort('title')} className={styles.sortable}>
-                        Position & Company
-                        {sortConfig.key === 'title' && (
-                          <span className={styles.sortIndicator}>
-                            {sortConfig.direction === 'ascending' ? ' ▲' : ' ▼'}
+                    <tr>                      <th onClick={() => handleSort('title')} className={styles.sortable}>
+                        <div className={styles.headerContent}>
+                          <span>Position & Company</span>                          <span className={styles.sortButtons}>
+                            <span className={styles.sortIndicator}>
+                              {sortConfig.key === 'title' && sortConfig.direction === 'descending' ? (
+                                'Z↓A'
+                              ) : (
+                                'A↓Z'
+                              )}
+                            </span>
                           </span>
-                        )}
+                        </div>
                       </th>
                       <th onClick={() => handleSort('salary')} className={styles.sortable}>
-                        Package
-                        {sortConfig.key === 'salary' && (
-                          <span className={styles.sortIndicator}>
-                            {sortConfig.direction === 'ascending' ? ' ▲' : ' ▼'}
+                        <div className={styles.headerContent}>
+                          <span>Package</span>
+                          <span className={styles.sortButtons}>
+                            <span className={styles.sortIndicator}>
+                              {sortConfig.key === 'salary' && sortConfig.direction === 'descending' ? (
+                                '9↓1'
+                              ) : (
+                                '1↓9'
+                              )}
+                            </span>
                           </span>
-                        )}
+                        </div>
                       </th>
                       <th onClick={() => handleSort('date')} className={styles.sortable}>
-                        Timeline
-                        {sortConfig.key === 'date' && (
-                          <span className={styles.sortIndicator}>
-                            {sortConfig.direction === 'ascending' ? ' ▲' : ' ▼'}
+                        <div className={styles.headerContent}>
+                          <span>Timeline</span>
+                          <span className={styles.sortButtons}>
+                            <span className={styles.sortIndicator}>
+                              {sortConfig.key === 'date' && sortConfig.direction === 'descending' ? (
+                                'New↓Old'
+                              ) : (
+                                'Old↓New'
+                              )}
+                            </span>
                           </span>
-                        )}
+                        </div>
                       </th>
                       <th onClick={() => handleSort('views')} className={styles.sortable}>
-                        Statistics
-                        {sortConfig.key === 'views' && (
-                          <span className={styles.sortIndicator}>
-                            {sortConfig.direction === 'ascending' ? ' ▲' : ' ▼'}
+                        <div className={styles.headerContent}>
+                          <span>Statistics</span>
+                          <span className={styles.sortButtons}>
+                            <span className={styles.sortIndicator}>
+                              {sortConfig.key === 'views' && sortConfig.direction === 'descending' ? (
+                                '9↓1'
+                              ) : (
+                                '1↓9'
+                              )}
+                            </span>
                           </span>
-                        )}
+                        </div>
                       </th>
                       <th>Action</th>
                     </tr>
