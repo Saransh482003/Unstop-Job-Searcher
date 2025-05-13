@@ -39,12 +39,6 @@ export default function Home() {
   const [results, setResults] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  const [pagination, setPagination] = useState({
-    currentPage: 1,
-    totalPages: 1,
-    itemsPerPage: 50,
-    totalItems: 0
-  });
   const [sortConfig, setSortConfig] = useState({
     key: null,
     direction: 'ascending'
@@ -89,37 +83,6 @@ export default function Home() {
     });
   };
 
-  const handlePageChange = async (newPage) => {
-    setLoading(true);
-    try {
-      const queryParams = new URLSearchParams({
-        title: formData.title,
-        location: formData.location,
-        type: formData.type,
-        page: newPage
-      });
-
-      const response = await fetch(`/api/search-jobs/?${queryParams}`);
-      const data = await response.json();
-
-      if (!response.ok) {
-        throw new Error(data.detail || "Failed to fetch jobs");
-      }
-
-      setResults(data.data);
-      setPagination({
-        currentPage: data.currentPage,
-        totalPages: data.totalPages,
-        itemsPerPage: data.itemsPerPage,
-        totalItems: data.count
-      });
-    } catch (err) {
-      setError(err.message);
-    } finally {
-      setLoading(false);
-    }
-  };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
@@ -130,23 +93,20 @@ export default function Home() {
         title: formData.title,
         location: formData.location,
         type: formData.type,
-        page: 1
       });
 
-      const response = await fetch(`/api/search-jobs/?${queryParams}`);
+      const response = await fetch(
+        `/api/search-jobs/?${queryParams}`
+      );
       const data = await response.json();
 
       if (!response.ok) {
         throw new Error(data.detail || "Failed to fetch jobs");
       }
 
-      setResults(data.data);
-      setPagination({
-        currentPage: data.currentPage,
-        totalPages: data.totalPages,
-        itemsPerPage: data.itemsPerPage,
-        totalItems: data.count
-      });
+      // Convert the object of objects to an array
+      const jobsArray = Object.values(data.data);
+      setResults(jobsArray);
     } catch (err) {
       setError(err.message);
     } finally {
@@ -271,14 +231,7 @@ export default function Home() {
                           </span>
                         )}
                       </th>
-                      <th onClick={() => handleSort('views')} className={styles.sortable}>
-                        Statistics
-                        {sortConfig.key === 'views' && (
-                          <span className={styles.sortIndicator}>
-                            {sortConfig.direction === 'ascending' ? ' ▲' : ' ▼'}
-                          </span>
-                        )}
-                      </th>
+                      <th>Statistics</th>
                       <th>Action</th>
                     </tr>
                   </thead>
@@ -350,25 +303,6 @@ export default function Home() {
                     ))}
                   </tbody>
                 </table>
-                <div className={styles.pagination}>
-                  <button
-                    onClick={() => handlePageChange(pagination.currentPage - 1)}
-                    disabled={pagination.currentPage === 1 || loading}
-                    className={styles.paginationButton}
-                  >
-                    Previous
-                  </button>
-                  <span className={styles.pageInfo}>
-                    Page {pagination.currentPage} of {pagination.totalPages}
-                  </span>
-                  <button
-                    onClick={() => handlePageChange(pagination.currentPage + 1)}
-                    disabled={pagination.currentPage === pagination.totalPages || loading}
-                    className={styles.paginationButton}
-                  >
-                    Next
-                  </button>
-                </div>
               </>
             ) : null}
           </div>
