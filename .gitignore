@@ -2,3 +2,8 @@ backend/env/
 backend/__pycache__/
 frontend/__pycache__/
 frontend/node_modules/
+.next
+node_modules
+.env
+.env.local
+.vercel

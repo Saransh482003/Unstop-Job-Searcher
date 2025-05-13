@@ -85,7 +85,7 @@ export default function Home() {
         <title>Unstop Job Search - Find Your Next Opportunity</title>
         <meta name="description" content="Search for jobs and internships" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/search-icon.ico" />
       </Head>
       <div className={`${styles.page} ${geistSans.variable} ${geistMono.variable}`}>
         <main className={styles.main}>
@@ -262,6 +262,19 @@ export default function Home() {
                     alt="Portfolio"
                   />
                   <span>Portfolio</span>
+                </a>
+                <a
+                  href="tel:+918178703402"
+                  className={styles.socialLink}
+                >
+                  <Image
+                    src="/phone.svg"
+                    width={20}
+                    height={20}
+                    style={{ filter: "invert(1)" }}
+                    alt="Phone"
+                  />
+                  <span>Call Me</span>
                 </a>
                 <a
                   href="https://www.linkedin.com/in/saranshsaini48/"
